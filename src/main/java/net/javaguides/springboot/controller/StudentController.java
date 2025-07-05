@@ -45,4 +45,6 @@ public class StudentController {
     {
         return new Student("gohil",fname,id);
     }
+
+    //adding new method here
 }

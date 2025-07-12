@@ -44,7 +44,7 @@ public class StudentController {
         return new Student("gohil",fname,id);
     }
 
-    //Spring boot rest API that handles HTTP Post request
+    //Spring boot rest API that handles HTTP POST request - creating new resource
     // @postmapping annotation and @requestbody annotation
     // requestbody annotation will convert json in java object
     @PostMapping("students/create")
@@ -54,5 +54,24 @@ public class StudentController {
         System.out.println(student.getLname());
         System.out.println(student.getId());
         return student;
+    }
+
+    //Spring boot REST API that handles HTTP PUT Request - updating existing resource
+    @PutMapping("students/{id}/update")
+    public Student updateStudent(@RequestBody Student student, @PathVariable int id)
+    {
+        System.out.println(student.getFname());
+        System.out.println(student.getLname());
+        System.out.println("ID Value is");
+        System.out.println(id);
+        return student;
+    }
+
+
+    //Spring boot REST API that handles HTTP DELETE Request - delete existing resource
+    @DeleteMapping("students/{id}/delete")
+    public String deleteStudent(@PathVariable int id)
+    {
+        return "User with id " + id + " is deleted";
     }
 }
